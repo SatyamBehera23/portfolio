@@ -1,0 +1,396 @@
+/* Reset styles for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Light Mode */
+body[data-theme="light"] {
+    background: linear-gradient(120deg, #f9f9f9, #e8f0fe);
+    color: #333;
+}
+
+/* Dark Mode */
+body[data-theme="dark"] {
+    background: linear-gradient(120deg, #121212, #2a2a2a);
+    color: #f3f3f3;
+}
+
+/* Header Styling */
+header {
+    text-align: center;
+    margin: 3rem 0;
+    color: inherit;
+    animation: fade-down 1s ease-in-out;
+}
+
+.profile-image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.profile-image {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border: 5px solid #fff;
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-image:hover {
+    transform: scale(1.1);
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    color: inherit;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    color: inherit;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+}
+
+header .theme-button {
+    background-color: #ffaf40; /* Vibrant yellow-orange button */
+    border: none;
+    border-radius: 50%;
+    padding: 0.8rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+    color: #121212;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header .theme-button:hover {
+    background-color: #ffa726; /* Darker shade of orange */
+    transform: rotate(360deg);
+}
+
+.theme-button i {
+    color: inherit;
+}
+
+/* Navigation Buttons */
+nav ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adaptive grid */
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 1.5rem 0;
+    gap: 1rem; /* Spacing between buttons */
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.2rem;
+    background: linear-gradient(90deg, #ffaf40, #f57c00);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    display: inline-block; /* Keeps buttons inline for compact size */
+    max-width: 200px; /* Restricts button width to avoid lengthy look */
+    white-space: nowrap; /* Prevents text from breaking into multiple lines */
+    overflow: hidden; /* Ensures content stays inside the button */
+    text-overflow: ellipsis; /* Adds ellipsis for overflowing text */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+nav ul li a:hover {
+    background: linear-gradient(90deg, #ffcc80, #ff8a65);
+    transform: scale(1.05);
+}
+
+/* Responsive Design for Buttons (Mobile View) */
+@media (max-width: 768px) {
+    nav ul {
+        grid-template-columns: repeat(2, 1fr); /* 2 buttons per row on small screens */
+        gap: 0.8rem; /* Reduce spacing for compactness */
+    }
+
+    nav ul li a {
+        width: auto; /* Allow buttons to shrink */
+        max-width: 250px; /* Slightly wider on mobile for better usability */
+        font-size: 1rem; /* Adjust font size for smaller screens */
+        padding: 0.6rem 1rem; /* Reduce padding for compact look */
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        grid-template-columns: repeat(1, 1fr); /* 1 button per row on very small screens */
+    }
+
+    nav ul li a {
+        font-size: 1rem; /* Adjust font size */
+        padding: 0.6rem 1rem; /* Reduce padding */
+    }
+}
+
+/* Section Styling */
+section {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    animation: fade-in 1s ease-in-out;
+}
+
+body[data-theme="dark"] section {
+    background: rgba(18, 18, 18, 0.9);
+}
+
+section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #f57c00;
+    margin-bottom: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: linear-gradient(90deg, #ffaf40, #f57c00);
+    margin: 0.5rem auto;
+    border-radius: 2px;
+}
+
+/* Skills Section */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.skill-circle {
+    position: relative;
+    margin: 1rem auto;
+    background: linear-gradient(135deg, #ffcc80, #ff8a65);
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+body[data-theme="dark"] .skill-circle {
+    background: linear-gradient(135deg, #f57c00, #ff6f00);
+}
+
+.skill-circle:hover {
+    transform: scale(1.1);
+}
+
+.skill-circle span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Project Cards */
+.project-card {
+    background: linear-gradient(135deg, #ffcc80, #ffa726);
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin: 1.5rem 0;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    color: #fff;
+}
+
+body[data-theme="dark"] .project-card {
+    background: linear-gradient(135deg, #2a2a2a, #3a3a3a);
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.project-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.project-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Footer */
+footer {
+    background-color: #121212;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 1rem;
+    margin-top: auto;
+    border-top: 5px solid #f57c00;
+}
+
+footer a {
+    color: #ffaf40;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #ffcc80;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    section h2 {
+        font-size: 2rem;
+    }
+
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .project-card {
+        padding: 1rem;
+    }
+}
+
+/* Animations */
+@keyframes fade-down {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Contact Section */
+#contact {
+    text-align: center;
+}
+
+.social-icon {
+    width: 30px; /* Resized icon width */
+    height: 30px; /* Resized icon height */
+    margin: 0 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icon:hover {
+    transform: scale(1.2); /* Slight zoom on hover */
+}
+
+
+/* Email Button Styling */
+.email-button {
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    border: 2px solid #f57c00;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.email-button img {
+    margin-right: 8px;
+}
+
+.email-button:hover {
+    background: #f57c00;
+    color: #fff;
+}
+
+.email-hover-text {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    background: #f57c00;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.email-button:hover .email-hover-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+@media (max-width: 480px) {
+    #contact {
+        flex-direction: column;
+        gap: 10px; /* Reduced spacing for smaller screens */
+    }
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- FontAwesome Icons -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const body = document.body;
+            const themeToggleButton = document.getElementById('theme-toggle');
+
+            // Load the initial theme from localStorage
+            const savedTheme = localStorage.getItem('theme') || (prefersDarkMode ? 'dark' : 'light');
+            body.dataset.theme = savedTheme;
+
+            // Update button icon
+            if (themeToggleButton) {
+                const icon = savedTheme === 'dark' ? 'fa-sun' : 'fa-moon';
+                themeToggleButton.innerHTML = `<i class="fas ${icon}"></i>`; // Set initial icon
+
+                // Toggle theme on button click
+                themeToggleButton.addEventListener('click', () => {
+                    const currentTheme = body.dataset.theme;
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+                    body.dataset.theme = newTheme;
+                    localStorage.setItem('theme', newTheme);
+
+                    const icon = newTheme === 'dark' ? 'fa-sun' : 'fa-moon';
+                    themeToggleButton.innerHTML = `<i class="fas ${icon}"></i>`; // Change icon
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="profile-image-container">
+            <img src="./assets/profile.jpg" alt="Your Photo" class="profile-image">
+        </div>
+        <h1 class="animate-header">SATYAM BEHERA</h1>
+        <p class="fade-in">Final Year B.Tech Computer Science Student</p>
+        <button id="theme-toggle" class="theme-button"><i class="fas fa-sun"></i></button>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about" class="section-link">About</a></li>
+            <li><a href="#skills" class="section-link">Skills</a></li>
+            <li><a href="#projects" class="section-link">Projects</a></li>
+            <li><a href="#academic" class="section-link">Academic</a></li>
+            <li><a href="#certifications" class="section-link">Certifications</a></li>
+            <li><a href="#achievements" class="section-link">Achievements</a></li>
+            <li><a href="#contact" class="section-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="about">
+        <h2 class="animate-section">About Me</h2>
+        <p>I am a passionate computer science student eager to learn and grow in the field of technology. This portfolio showcases my journey and aspirations.</p>
+    </section>
+
+    <section id="skills">
+        <h2 class="animate-section">Skills</h2>
+        <div class="skills-container">
+            <div class="skill-circle">
+                <div class="circle" data-skill="90"></div>
+                <p>HTML</p>
+            </div>
+            <div class="skill-circle">
+                <div class="circle" data-skill="85"></div>
+                <p>CSS</p>
+            </div>
+            <div class="skill-circle">
+                <div class="circle" data-skill="80"></div>
+                <p>Python</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="animate-section">Projects</h2>
+        <div class="project-card slide-in">
+            <h3>AI-Based Race Strategy Simulator</h3>
+            <p>An advanced project to simulate race strategies using artificial intelligence techniques, aligned with my interest in Formula 1.</p>
+        </div>
+        <div class="project-card slide-in">
+            <h3>Plant Disease Detection System</h3>
+            <p>The system uses machine learning and image processing to analyze plant images and diagnose diseases, supporting sustainable agriculture.</p>
+        </div>
+    </section>
+
+    <section id="academic">
+        <h2 class="animate-section">Academic Details</h2>
+        <div class="academic-card">
+            <ul>
+                <li>B.Tech in Computer Science & Engineering (CGPA: 6.56) - KIIT University</li>
+                <li>Class XII (82.6%) - Doon International School, Bhubaneswar (CBSE)</li>
+                <li>Class X (88.6%) - Kendriya Vidyalaya No. 2, Bhubaneswar (CBSE)</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2 class="animate-section">Certifications</h2>
+        <div class="certification-card">
+            <ul>
+                <li>Advanced Digital Transformation - IIM Ahmedabad</li>
+                <li>Foundations of Digital Marketing and E-commerce - Google</li>
+                <li>Introduction to Social Media Marketing - Meta</li>
+                <li>The Role of Global Capital Markets - The University of Melbourne</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="achievements">
+        <h2 class="animate-section">Achievements</h2>
+        <div class="achievement-card">
+            <ul>
+                <li>Represented Kuwait at KIIT International Model United Nations (2022)</li>
+                <li>Under-19 Cricket Team (2nd place) - Kendriya Vidyalaya Regional Games (2017)</li>
+                <li>Under-19 Cricket Team (3rd place) - Kendriya Vidyalaya Regional Games (2016)</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="animate-section">Contact</h2>
+        <p>
+            <button class="email-button" onclick="window.location.href='mailto:satyambehera2309@gmail.com'">
+                <img src="./assets/email-icon.png" alt="Email icon" class="social-icon">
+                <span class="email-hover-text">satyambehera2309@gmail.com</span>
+            </button>
+            
+            <div class="social-icons">
+                <a href="https://linkedin.com/in/satyam-behera23/" target="_blank">
+                    <img src="./assets/linkedin-icon.png" alt="LinkedIn icon" class="social-icon">
+                </a>
+                <a href="https://github.com/SatyamBehera23" target="_blank">
+                    <img src="./assets/github-icon.png" alt="GitHub icon" class="social-icon">
+                </a>
+            </div>
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 SATYAM BEHERA. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
